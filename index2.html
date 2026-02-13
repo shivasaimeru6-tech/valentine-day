@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Cute Love Journey</title>
+<style>
+body {
+  margin:0;
+  background:#5a0f2e;
+  overflow:hidden;
+  font-family:cursive;
+  text-align:center;
+  color:white;
+}
+.screen { display:none; height:100vh; justify-content:center; align-items:center; flex-direction:column; }
+.active { display:flex; }
+button { padding:15px 25px; font-size:18px; border:none; border-radius:20px; background:#ff69b4; color:white; }
+.letter { background:white; color:#5a0f2e; padding:20px; border-radius:20px; width:80%; }
+.heart, .flower { position: fixed; top:-10px; animation: fall linear infinite; }
+@keyframes fall { to { transform: translateY(110vh); } }
+</style>
+</head>
+<body>
+
+<div id="s1" class="screen active">
+<h1>💖 Enter Our Cute Love Story 💖</h1>
+<button onclick="next(2)">Enter</button>
+</div>
+
+<div id="s2" class="screen"><h1>🌹</h1><p>Tap</p></div>
+<div id="s3" class="screen"><div class="letter"><p>My Buggalamma 💕, my Buggala Maharani 👑, my Bangaruuu Thallii 💖... you are my cutest happiness. Every moment with you feels soft, warm and magical.</p></div></div>
+
+<div id="s4" class="screen"><h1>💍</h1><p>Tap</p></div>
+<div id="s5" class="screen"><div class="letter"><p>I don’t just love you… I adore you. I want to hold you in every happy and sad moment forever my babyyyy 😘</p></div></div>
+
+<div id="s6" class="screen"><h1>🍫</h1><p>Tap</p></div>
+<div id="s7" class="screen"><div class="letter"><p>You are sweeter than chocolates and cuter than every dream I ever had 💕</p></div></div>
+
+<div id="s8" class="screen"><h1>🧸</h1><p>Tap</p></div>
+<div id="s9" class="screen"><div class="letter"><p>I just want to hug you tight and never let go 🤗</p></div></div>
+
+<div id="s10" class="screen"><h1>🤝</h1><p>Tap</p></div>
+<div id="s11" class="screen"><div class="letter"><p>I promise to stay beside you always, especially in your worst moments 💖</p></div></div>
+
+<div id="s12" class="screen"><h1>🤗</h1><p>Tap</p></div>
+<div id="s13" class="screen"><div class="letter"><p>Your hug is my home 🏠💕</p></div></div>
+
+<div id="s14" class="screen"><h1>💋</h1><p>Tap</p></div>
+<div id="s15" class="screen"><div class="letter"><p>Ummmmmahhhhhhhh 😘😘😘😘😘😘😘</p></div></div>
+
+<div id="s16" class="screen">
+<h1>❤️ Tap 4 times ❤️</h1>
+</div>
+
+<div id="final" class="screen">
+<h1>Happy Valentine's Day Baby 💖</h1>
+<h2>Buggalamma 💕</h2>
+<h2>Naa Buggala Maharani 👑</h2>
+<h2>Naa Bangaruuu Thallii 💘</h2>
+<h1>💐🎁🫶👩‍❤️‍👨</h1>
+<h1>Will You Be Mine Forever?</h1>
+<button onclick="yesMagic()">YES 💖</button>
+</div>
+
+<script>
+let step=2; let taps=0;
+document.body.onclick=function(){
+if(step<16){ next(step+1); step++; }
+else if(step==16){ taps++; if(taps==4){ next('final'); }}
+}
+function next(n){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('s'+n)?.classList.add('active'); document.getElementById(n)?.classList.add('active'); }
+function yesMagic(){ createFlowers(); }
+function createHearts(){ setInterval(()=>{ const h=document.createElement('div'); h.innerHTML='💖'; h.className='heart'; h.style.left=Math.random()*100+'vw'; h.style.animationDuration=(3+Math.random()*5)+'s'; document.body.appendChild(h); },200);} 
+function createFlowers(){ setInterval(()=>{ const f=document.createElement('div'); f.innerHTML='🌸'; f.className='flower'; f.style.left=Math.random()*100+'vw'; f.style.animationDuration=(4+Math.random()*5)+'s'; document.body.appendChild(f); },300);} 
+createHearts();
+</script>
+
+</body>
+</html>
